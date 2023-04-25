@@ -3,6 +3,7 @@ import { Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import FPV from './components/FPV';
 import Ground from './components/Ground';
+import Player from './components/Player';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <FPV />
       <Physics>
         <Ground />
+        <Player />
       </Physics>
     </Canvas>
   );
