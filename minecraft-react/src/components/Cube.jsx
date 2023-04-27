@@ -5,7 +5,7 @@ import { useStore } from '../hooks/useStore.js';
 
 const Cube = ({ id, position, texture }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [addCube] = useStore(state => [state.addCube]);
+  const [addCube, removeCube] = useStore(state => [state.addCube, state.removeCube]);
   const [ref] = useBox(() => ({
     type: 'Static',
     position,
@@ -25,24 +25,20 @@ const Cube = ({ id, position, texture }) => {
     event.stopPropagation();
     const clickedFace = Math.floor(event.faceIndex / 2);
     const { x, y, z } = ref.current.position;
-    if (clickedFace === 0) {
+    if (event.altKey) {
+      removeCube(id);
+    } else if (clickedFace === 0) {
       addCube(x + 1, y, z);
-      return;
     } else if (clickedFace === 1) {
       addCube(x - 1, y, z);
-      return;
     } else if (clickedFace === 2) {
       addCube(x, y + 1, z);
-      return;
     } else if (clickedFace === 3) {
       addCube(x, y - 1, z);
-      return;
     } else if (clickedFace === 4) {
       addCube(x, y, z + 1);
-      return;
     } else if (clickedFace === 5) {
       addCube(x, y, z - 1);
-      return;
     }
   };
 

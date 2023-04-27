@@ -13,4 +13,9 @@ export const useStore = create((set) => ({
       }]
     }));
   },
+  removeCube: (id) => {
+    set(state => ({
+      cubes: state.cubes.filter(cube => cube.id !== id)
+    }));
+  }
 }));
