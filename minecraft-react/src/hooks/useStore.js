@@ -18,5 +18,19 @@ export const useStore = create((set) => ({
     set(state => ({
       cubes: state.cubes.filter(cube => cube.id !== id)
     }));
+  },
+  saveCubes: () => {
+    const cubes = JSON.stringify(useStore.getState().cubes);
+    localStorage.setItem('cubes', cubes);
+  },
+  loadCubes: () => {
+    const cubes = localStorage.getItem('cubes');
+    if (cubes) {
+      set({ cubes: JSON.parse(cubes) });
+    }
+  },
+  clearCubes: () => {
+    localStorage.removeItem('cubes');
+    set({ cubes: [] });
   }
 }));

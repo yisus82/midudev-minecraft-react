@@ -11,6 +11,9 @@ const ACTIONS_KEYBOARD_MAP = {
   Digit3: "selectGrass",
   Digit4: "selectLog",
   Digit5: "selectWood",
+  KeyJ: "save",
+  KeyK: "load",
+  KeyL: "clear",
 };
 
 export const useKeyboard = () => {
@@ -25,6 +28,9 @@ export const useKeyboard = () => {
     selectGrass: false,
     selectLog: false,
     selectWood: false,
+    save: false,
+    load: false,
+    clear: false,
   });
 
   const handleKeyDown = (event) => {
