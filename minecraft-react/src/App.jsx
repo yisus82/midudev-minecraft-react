@@ -1,6 +1,7 @@
 import { Physics } from '@react-three/cannon';
 import { Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
+import { Cubes } from './components/Cubes';
 import FPV from './components/FPV';
 import Ground from './components/Ground';
 import Player from './components/Player';
@@ -13,8 +14,9 @@ const App = () => {
         <ambientLight intensity={0.5} />
         <FPV />
         <Physics>
-          <Ground />
+          <Cubes />
           <Player />
+          <Ground />
         </Physics>
       </Canvas>
       <div className='pointer'>+</div>
